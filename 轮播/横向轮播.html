@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <style>
+        *{margin:0;padding:0;list-style:none;}
+        #box{width:778px; height:440px; margin:20px auto; border:solid 2px #000; position:relative; overflow:hidden;}
+        #box ul li{ float:left; }
+        #box ul{width:12448px; position:absolute; left:0; transition:2s;}
+        #box ul li img{width:778px; height:440px;}
+    </style>
+</head>
+<body>
+    <div id="box">
+        <ul>
+            <li><img src="images/banner1.jpg" alt=""></li>
+            <li><img src="images/banner2.jpg" alt=""></li>
+            <li><img src="images/banner3.jpg" alt=""></li>
+            <li><img src="images/banner4.jpg" alt=""></li>
+            <li><img src="images/banner5.jpg" alt=""></li>
+            <li><img src="images/9maskbanner.png" alt=""></li>
+        </ul>
+    </div>
+
+    <script>
+         var ouls=document.getElementById('box').getElementsByTagName('ul')
+         var lis=ouls[0].getElementsByTagName('li')
+         var i=0
+          setInterval(function(){
+              i++
+              if(i>lis.length-1)i=0
+              ouls[0].style.left=-778*i+'px'
+          },2000)
+    </script>
+
+</body>
+</html>

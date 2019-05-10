@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+<body>
+    <input type="text" id="user">
+    <button id="btn">获取验证码</button>
+
+    <script>
+         var user=document.getElementById('user')
+         var btn=document.getElementById('btn')
+         var timer=null
+         var i=5
+          btn.onclick=function(){
+                btn.disabled=true
+                if(user.value.length!=11 || isNaN(user.value)){
+                    alert('请输入手机号')
+                    btn.disabled=false
+                    return
+                }else{
+                    timer=setInterval(function(){
+                     i--;
+                     user.disabled=true
+                     if(i<0){
+                         clearInterval(timer)
+                         i=5;
+                         btn.disabled=false;
+                         user.disabled=false;
+                         btn.innerHTML='重新获取验证码'
+                         return
+                     }
+                      btn.innerHTML=i+'秒后获取新验证码'
+                 },1000)
+                }
+
+          }
+    </script>
+
+</body>
+</html>

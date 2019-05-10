@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <style>
+         *{list-style:none;}
+         li{height:60px;}
+    </style>
+</head>
+<body>
+    <button id="btn">添加</button>
+    <ul id="list">
+        <li><input type="text"><span>X</span></li>
+    </ul>
+
+    <script>
+          var btn=document.getElementById('btn')
+          var list=document.getElementById('list')
+          var lis=list.getElementsByTagName('li')
+          var spans=document.getElementsByTagName('span')
+
+
+          btn.onclick=function(){
+                 if(lis.length<5){
+                      var newli=document.createElement('li')
+                      newli.innerHTML='<input type="text"><span>X</span>'
+                      list.appendChild(newli)
+                      for(var i=0;i<spans.length;i++){
+                            spans[i].onclick=function(){
+                                 list.removeChild(this.parentNode)
+                                 btn.style.display='block'
+                            }
+                      }
+                 }else{
+                      alert('只能写5个')
+                       btn.style.display='none'
+                 }
+          }
+
+    </script>
+
+</body>
+</html>

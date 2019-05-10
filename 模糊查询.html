@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="search" id="s_box"><input type="button" value="搜索" id="s_box1">
+    <ul id="list">
+
+    </ul>
+    <script>
+         var s_box = document.getElementById('s_box')
+         var s_box1 = document.getElementById('s_box1')
+         var list = document.getElementById('list')
+         var arr = ['程建业','徐向宇','李楠','楠楠','李阿楠']
+          var str = ''
+         s_box.addEventListener('keyup',function(e){
+                var eve = e || window.event
+                e.preventDefault()
+                var val = this.value.trim();
+                if(eve.keyCode === 13){           
+                     search(val)     
+                }else if(val == ''){
+                    list.style.display = 'none'
+                }
+         })
+         
+         function search(val){    
+               arr.filter(function(item,i,arr){
+                     if(item.indexOf(val) > -1){
+                         str += '<li>'+item+'</li>'
+                     }
+               })
+               list.innerHTML = str
+               list.style.display = 'block'
+               document.addEventListener('click',function(){
+                    list.style.display = 'none'
+               })
+               
+         } 
+         click()
+         function click(){
+              s_box1.addEventListener('click',function(e){
+                  var eve = e || window.event
+                  eve.stopPropagation()
+                  var val = s_box.value.trim();
+                    if(val == ''){
+                        alert('请输入文字')
+                    }else{
+                        search(val)
+                    }
+              })
+         }
+    </script>
+</body>
+</html>

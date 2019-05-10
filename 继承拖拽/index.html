@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box1{
+             width: 200px;
+             height: 200px;
+             background: #ccc;
+             position: absolute;
+             left: 0;
+         }
+         .box2{
+             width: 200px;
+             height: 200px;
+             background: #cfc;
+             position: absolute;
+             right:0;
+         }
+    </style>
+
+</head>
+<body>
+    <div id="box1" class="box1"></div>
+    <div id="box2" class="box2"></div>
+    <script src="js/drop.js"></script>
+    <script src="js/inhrite.js"></script>
+    <script>
+        var box1 = document.getElementById('box1')
+        new Drop({
+             el:box1
+        })
+            var box2 = document.getElementById('box2')
+       var son = new inhrite({
+             el:box2,
+             arrer:[100,600]
+        
+        })
+        
+    </script>
+</body>
+</html>

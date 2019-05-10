@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <style>
+        #box{background:#fcc;}
+        li{width:50px; height:50px;}
+    </style>
+</head>
+<body>
+
+    <div id="box"><b style='color: red;font-size:50px'>aass</b></div>
+    <!-- <ul>
+        <li style="background:red"></li>
+        <li style="background:yellow"></li>
+        <li style="background:skyblue"></li>
+        <li style="background:green"></li>
+    </ul> -->
+
+    <h2 id="title">一级菜单</h2>
+    <ul id="list">
+        <li>抢到票了</li>
+        <li>抢到票了</li>
+        <li>抢到票了</li>
+
+    </ul>
+
+        <script>
+
+              /*var lis=document.getElementsByTagName('li')
+
+                for(var i=0;i<lis.length;i++){
+                        lis[i].onclick=function(){
+                                document.body.style.background=this.style.background;
+                        }
+                }*/
+
+
+                var title=document.getElementById('title'),
+                    list=document.getElementById('list')
+
+                    title.onclick=function(){
+                            if(list.style.display=='none'){
+                                 list.style.display='block'
+                            }else{
+                                 list.style.display='none'
+                            }
+                    }
+
+
+        </script>
+
+</body>
+</html>

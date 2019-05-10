@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    入住：<input type="text" id="start"><br>
+    离开：<input type="text" id="leave"><br>
+    <button id="btn">返回</button>
+
+    <script>
+        var now = new Date(),
+            start = document.getElementById('start'),
+            leave = document.getElementById('leave'),
+            btn = document.getElementById('btn')
+          Time = {
+              y:now.getFullYear(),
+              m:now.getMonth()+1,
+              d:now.getDate()
+          }
+          countTime = new Date(Time.y,Time.m -1,Time.d + 1)
+
+          count = {
+              y:countTime.getFullYear(),
+              m:countTime.getMonth()+1,
+              d:countTime.getDate()
+          }
+          start.value = Time.y + '/' + Time.m + '/' + Time.d
+          leave.value = count.y + '/' + count.m + '/' + count.d
+
+          btn.onclick = function(){
+               location.href = 'ready.html?start='+ start.value +"&leave="+ leave.value +"&name="+encodeURI('程建业')
+          }
+    </script>
+</body>
+</html>

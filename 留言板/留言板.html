@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <style>
+        #pic{}
+        #pic img{width:60px; opacity: 0.2}
+        #box{width:600px;}
+        #box dl{height: 120px;border-bottom: 1px solid red;position: relative;}
+        #box dl dt img{width:80px;}
+        #box dl dt{float: left}
+        #box dl dd{float: left}
+        #box dl span{position: absolute; right:10px; bottom:50%; display: none;}
+    </style>
+    <div>
+        <input type="text" id='user'><span id='pic'>
+            <img src="pic/1.gif" alt="" style='opacity: 1'>
+            <img src="pic/2.gif" alt="">
+            <img src="pic/3.gif" alt="">
+            <img src="pic/4.gif" alt="">
+            <img src="pic/5.gif" alt="">
+            <img src="pic/6.gif" alt="">
+        </span>
+    </div>
+    <div>
+        <textarea id="info" cols="60" rows="5" maxlength="20"></textarea>
+        <br>
+        <span>您还可以输入<b>20</b>个字符</span><button id='add'>广播</button>
+    </div>
+    <div id='box'>
+        <dl>
+            <dt><img src="pic/1.gif" alt=""></dt>
+            <dd>
+                <h2>user.value:info.value</h2>
+                <p>1月12日11:06:05</p>
+            </dd>
+            <span>删除</span>
+        </dl>
+    </div>
+
+    <script>
+         var user=document.getElementById('user')
+         var pic=document.getElementById('pic')
+         var imgs=pic.getElementsByTagName('img')
+         var add=document.getElementById('add')
+         var info=document.getElementById('info')
+         var url=''
+         var bs=document.getElementsByTagName('b')
+         for(var i=0;i<imgs.length;i++){
+              imgs[i].onclick=function(){
+                     for(var j=0;j<imgs.length;j++){
+                          imgs[j].style.opacity=0.2
+                     }
+                        this.style.opacity=1;
+                        url=this.src
+              }
+         }
+
+         info.onkeyup=function(){
+               bs[0].innerHTML=20-info.value.length
+         }
+
+        var box=document.getElementById('box')
+
+        add.onclick=function(){
+              var newdl=document.createElement('dl')
+               newdl.innerHTML=`
+               <dl>
+                    <dt><img src="${url}" alt=""></dt>
+                    <dd>
+                        <h2>${user.value}:${info.value}</h2>
+                        <p>${getTime()}</p>
+                    </dd>
+                    <span>删除</span>
+              </dl>`
+              box.appendChild(newdl)
+              var spans=newdl.getElementsByTagName('span')
+              console.log(spans[0])
+              newdl.onmouseover=function(){
+                   this.style.background='#ccc'
+                   spans[0].style.display='block'
+              }
+              newdl.onmouseout=function(){
+                   this.style.background=''
+                   spans[0].style.display='none'
+
+              }
+
+
+              spans[0].onclick=function(){
+                   box.removeChild(this.parentNode.parentNode)
+
+              }
+        }
+
+
+        function getTime(){
+               var now=new Date()
+               var year=now.getFullYear();
+               var month=now.getMonth()+1;
+               var date=now.getDate();
+               var hours=now.getHours();
+               var ms=now.getMinutes();
+               var sc=now.getSeconds();
+
+               return month+'月'+date+'日'+hours+':'+ms+':'+sc
+        }
+    </script>
+</head>
+<body>
+
+
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrap" id="wrap"></div>
+    <script>
+         var mData = [{
+            name: "一级菜单1",
+            subMenu: [{
+                name: "二级菜单1",
+                subMenu: [{
+                    name: "三级菜单1"
+                }, {
+                    name: "三级菜单1",
+                    subMenu: [{
+                        name: "四级菜单1"
+                    }, {
+                        name: "四级菜单1",
+                        subMenu: [{
+                            name: "五级菜单1"
+                        }, {
+                            name: "五级菜单2"
+                        }, {
+                            name: "五级菜单3"
+                        }]
+                    }]
+                }, {
+                    name: "三级菜单2"
+                }]
+            }]
+        }, {
+            name: "一级菜单2",
+            subMenu: [{
+                name: "二级菜单1"
+            }, {
+                name: "二级菜单2",
+                subMenu: [{
+                    name: "三级菜单1"
+                }, {
+                    name: "三级菜单1",
+                    subMenu: [{
+                        name: "四级菜单1"
+                    }, {
+                        name: "四级菜单1"
+                    }]
+                }, {
+                    name: "三级菜单2"
+                }]
+            }]
+        }, {
+            name: "一级菜单3"
+        }]
+        console.log(mData)
+        
+        function create(data,container){
+            var wrap = document.getElementById('wrap')
+            var ul = document.createElement('ul')
+            data.forEach(function(item){
+                var li = document.createElement('li')
+                li.innerHTML = item.name
+                ul.appendChild(li)
+                if(!item.subMenu){
+                    return;
+                }
+                create(item.subMenu,li)
+                container.appendChild(ul)
+            })
+        }
+        
+       create(mData,wrap)
+
+       wrap.onclick = function(e){
+            var eve = e || window.event,
+                tar = eve.target || eve.srcElment
+             if(tar.tagName === 'LI'){
+                  if(tar.children[0].style.display === 'none'){
+                      tar.children[0].style.display = 'block'
+                  }else{
+                      tar.children[0].style.display = 'none'
+                  }
+             }else{
+                 return;
+             }
+              
+       }
+    </script>
+</body>
+</html>

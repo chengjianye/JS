@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <style>
+        ul{display:none;}
+    </style>
+</head>
+<body>
+    <h2>一级菜单</h2>
+    <ul>
+        <li>1123132132</li>
+        <li>1123132132</li>
+        <li>1123132132</li>
+        <li>1123132132</li>
+        <li>1123132132</li>
+    </ul>
+    <h2>一级菜单</h2>
+    <ul>
+        <li>1123132132</li>
+        <li>1123132132</li>
+        <li>1123132132</li>
+        <li>1123132132</li>
+        <li>1123132132</li>
+    </ul>
+    <h2>一级菜单</h2>
+    <ul>
+        <li>1123132132</li>
+        <li>1123132132</li>
+        <li>1123132132</li>
+        <li>1123132132</li>
+        <li>1123132132</li>
+    </ul>
+    <h2>一级菜单</h2>
+    <ul>
+        <li>1123132132</li>
+        <li>1123132132</li>
+        <li>1123132132</li>
+        <li>1123132132</li>
+        <li>1123132132</li>
+    </ul>
+    <script>
+            var h2s=document.getElementsByTagName('h2')
+            var uls=document.getElementsByTagName('ul')
+
+         /*for(var j=0;j<h2s.length;j++){
+            h2s[j].index=j
+            h2s[j].onclick=function(){
+                for(var i=0;i<uls.length;i++){
+                    uls[i].style.display='none'
+                 }
+                 uls[this.index].style.display='block'
+            }
+         }*/
+
+       for(var j=0;j<h2s.length;j++){
+        h2s[j].index=j
+        h2s[j].onclick=function(){
+            for(var i=0;i<uls.length;i++){
+             uls[i].style.display='none'
+             }
+            uls[this.index].style.display='block'
+        }
+
+      }
+    </script>
+</body>
+</html>

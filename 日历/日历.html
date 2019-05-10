@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <style>
+        #box{width:800px; height:200px; background:#fcc; font-size:30px; color: #fff}
+    </style>
+</head>
+<body>
+<div id="box"></div>
+
+
+    <script>
+        /*var arr=[3,4,2,8,15,1,98]
+        function fn(arry){
+                var min=arr[0],index;
+                for(var i=0;i<arr.length;i++){
+                        if(min>arr[i]){
+                            min=arr[i]
+                            index=i
+                        }
+             }
+
+             return '最小值是'+min+'最小值下标是'+index
+        }
+
+
+        console.log(fn(arr))*/
+        var box=document.getElementById('box')
+        fn();
+        setInterval(fn,1000)
+        function fn(){
+            var now=new Date();
+            var year=now.getFullYear();
+            var month=now.getMonth()+1;
+            var date=now.getDate();
+            var hours=now.getHours();
+            var minutes=now.getMinutes();
+            var seconds=now.getSeconds();
+            var milliseconds=now.getMilliseconds();
+            var day=now.getDay();
+            var arr=['日','一','二','三','四','五','六']
+            /*if(month<10){
+                month='0'+month
+            }
+            if(date<10){
+                date='0'+date
+            }
+            if(hours<10){
+                hours='0'+hours
+            }*/
+
+            box.innerHTML=(year+'年'+fun(month)+'月'+fun(date)+'日'+fun(hours)+'时'+minutes+'分'+seconds+'秒'+milliseconds+'毫秒'+'星期'+arr[day])
+        }
+
+        function fun(a){
+                if(a<10){
+                     a='0'+a
+                }
+                return a
+        }
+
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>

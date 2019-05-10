@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+      
+
+     <script>
+         var arr = [1,2,['a','b']];
+             var obj = {
+                  a:1,
+                  summary:[
+                      'orange','apple'
+                  ]
+             }
+         //深拷贝
+          function deepCopy(data){
+               if(typeof data !== 'object'){
+                    return data
+               } 
+               var rs = data.constructor === Array ? [] : {}             
+                   for(var k in data){
+                        rs[k] = deepCopy(data[k])
+                    }              
+               return rs
+          }
+          console.log(deepCopy(obj))
+     </script>
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<!-- 1、已知有字符串foo="get-element-by-id"，写一个function将其转换成驼峰表示法"getElementById"。 -->
+	<script>
+		var foo="get-element-by-id"
+		var str=foo.split("-")
+		for(var i=1;i<str.length;i++){
+			str[i]=str[i][0].toUpperCase()+str[i].substr(1)
+		}
+		console.log(str.join(""))
+	</script>
+<!-- 2、在1-100之间随机生成10个偶数放到数组内，且对这个数组做升序排列。整体使用一个function，将生成随机数再封装在一个function内。 -->
+	<script>
+		function random(x,y){
+			return Math.floor(Math.random()*y-x+1)+x
+		}
+		function fn(){
+			var str=[]
+			while(str.length<10){
+				var nums=random(1,100)
+				if(nums%2==0 && str.indexOf(nums)==-1){
+					str.push(nums)
+				}
+
+			}
+			console.log(str.sort(function(x,y){return x-y}))
+		}
+		console.log(fn())
+
+	</script>
+<!-- 3、写一个方法，求二维数组的和。如var arr = [[1,2,7],[4,5,6],[9,8,20]]; 返回62 -->
+	<script>
+		var arr = [[1,2,7],[4,5,6],[9,8,20]];
+		function fn(a){
+			var num=0
+			for(var i=0;i<a.length;i++){
+				for(var j=0;j<a[i].length;j++){
+					num+=a[i][j]
+				}
+			}return num
+		}
+			console.log(fn(arr))
+	</script>
+<!-- 4、查找数组中，数字的个数 。封装成函数. arr=[2,4,5,"a",0,10,"b"];  数字的个数为5个。 -->
+	<script>
+		var arr=[2,4,5,"a",0,10,"b"]
+		function fn(a){
+			var t=0
+			for(var i=0;i<a.length;i++){
+				if(typeof(a[i])==="number"){
+					t++
+				}
+			}
+			return t
+		}
+			console.log(fn(arr))
+	</script>
+<!-- 5、删除数组中某项值 .封装成方法 。removeAt(arry,val)  arr=[3,5,2,8,2]  ,把2删除。 -->
+	<script>
+		var arr=[3,5,2,8,2]
+		function fn(a){
+			for(var i=a.length-1;i>=0;i--){
+				if(a[i]==2){
+					a.splice(i,1)
+				}
+			}
+			return a
+		}
+
+		console.log(fn(arr))
+	</script>
+<!-- 6、数组排重排序  var arr=[2,4,6,1,7,2]   最终数组结果为 [1,2,4,6,7] -->
+	<script>
+		var arr=[2,4,6,1,7,2]
+		function fn(a){
+			var str=[]
+			for(var i=0;i<a.length;i++){
+				if(str.indexOf(a[i])==-1){
+					str.push(a[i])
+				}
+			}
+			return str.sort(function(x,y){return x-y})
+		}
+		console.log(fn(arr))
+	</script>
+<!-- 7、翻转数组方法  var arr=[3,5,6]  翻转之后 -->
+	<script>
+		var arr=[3,5,6]
+		function fn(a){
+			a=a.reverse()
+			return a
+		}
+			console.log(fn(arr))
+	</script>
+<!-- 8、var url = "http://localhost/mylive.php?id=99&key=双11特惠";封装一个函数，调用函数时传入要获取的参数名，函数返回该参数对应的值，如果找不到，弹出警告框提示用户“没有该参数对应的值”。如传入id，返回99；传入key返回“双11特惠” -->
+	<script>
+	var url = "http://localhost/mylive.php?id=99&key=双11特惠"
+	function fn(url,a){
+		var str=url.split("?")[1].split("&")
+		for(var i=0;i<str.length;i++){
+			if(str[i].indexOf(a)>-1){
+				var temp=str[i].split("=")
+				return temp[1]
+			}
+		}
+		return "没有找到该数值"
+	}
+		console.log(fn(url,"key"))
+	</script>
+<!-- 9、封装一个方法，实现求任意多个数的平均值。 -->
+	<script>
+		function fn(){
+			var sum=0
+			for(var i=0;i<arguments.length;i++){
+				sum+=arguments[i]
+			}
+			return sum
+		}
+		console.log(fn(1,9,2,8,3,7))
+	</script>
+<!-- 10、10到100的十位随机数并排序 -->
+	<script>
+		function random(x,y){
+			return Math.floor(Math.random()*(y-x)+1)+x
+		}
+		function fn(){
+			var str=[]
+			for(var i=0;i<10;i++){
+				var nums=random(10,100)
+				str.push(nums)
+			}
+			return str.sort(function(x,y){return x-y})
+		}
+		console.log(fn())
+	</script>
+<!-- 11、 var str='abc' 让字符串重复3遍，成为 str='abcabcabc' -->
+	<script>
+		var str='abc'
+
+		function fn(arr){
+			var newstr=""
+			for(var i=0;i<3;i++){
+				newstr+=arr
+			}
+			return newstr
+		}
+		console.log(fn(str))
+	</script>
+<!-- 12、判断数组中的最大值，最小值，并返回所在下标。 -->
+	<script>
+		var arr=[1,2,7,9,6,4]
+		function fn(arr){
+			var str=arr.sort(function(x,y){return x-y})
+			return "最小值"+str[0]+"最大值"+str[arr.length-1]
+		}
+		console.log(fn(arr))
+	</script>
+<!-- 13、var  str='a2b4admin3'字符的每个数字都乘2 ,成为'a4b8admin6' -->
+	<script>
+		var  str='a2b4admin3'
+		function fn(arr){
+			var newstr=""
+			for(var i=0;i<arr.length;i++){
+				if(isNaN(arr[i])){
+					newstr+=arr[i]
+				}else{
+					newstr+=arr[i]*2
+				}
+			}
+			return newstr
+		}
+		console.log(fn(str))
+	</script>
+<!-- 14、indexOf()封装 封装一个函数，检测一个值在数组中出现的位置，如果没有出现返回-1，否则返回值在数组中出现的索引。 -->
+	<script>
+
+	</script>
+</body>
+</html>

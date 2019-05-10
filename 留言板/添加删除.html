@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+<body>
+    <button id="btn">添加</button>
+    <input type="text" id="pro">
+    <ul id="list">
+        <li>111 <a href="#">删除</a></li>
+        <li>2222<a href="#">删除</a></li>
+        <li>33333<a href="#">删除</a></li>
+        <li>444444<a href="#">删除</a></li>
+    </ul>
+
+    <script>
+         var btn=document.getElementById('btn')
+         var pro=document.getElementById('pro')
+         var list=document.getElementById('list')
+         var lis=list.getElementsByTagName('li')
+         var oAs=document.getElementsByTagName('a')
+
+
+         for(var i=0;i<oAs.length;i++){
+               oAs[i].onclick=function(){
+                    list.removeChild(this.parentNode)
+               }
+         }
+
+         btn.onclick=function(){
+                if(pro.value.length==''){
+                     alert('请输入信息')
+                }else{
+                     var newli=document.createElement('li')
+                      newli.innerHTML=pro.value+'<a href="#">删除</a>'
+                      list.appendChild(newli)
+                      for(var i=0;i<oAs.length;i++){
+                           oAs[i].onclick=function(){
+                                list.removeChild(this.parentNode)
+                           }
+                     }
+
+                }
+         }
+
+
+         /*for(var i=0;i<oAs.length;i++){
+                oAs[i].onclick=function(){
+                        list.removeChild(this.parentNode)
+                }
+         }
+
+         btn.onclick=function(){
+                 var newli=document.createElement('li')
+                 newli.innerHTML=pro.value+'<a href="#">删除</a>'
+                 list.appendChild(newli)
+                 for(var i=0;i<oAs.length;i++){
+                oAs[i].onclick=function(){
+                        list.removeChild(this.parentNode)
+                }
+                }
+         }*/
+
+
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+            list-style: none;
+        }
+        .wrap{
+            width: 300px;
+            height: 220px;
+            margin:0 auto;
+        }
+        .wrap ul{
+            width: 300px;
+            
+        }
+        .wrap ul li {
+            width: 100px;
+            float: left;
+            line-height: 22px;
+            border-bottom: 1px solid #cfc;
+        }
+        .wrap p{
+            background: #ccc;
+            width: 300px;
+            height: 200px;
+            display: none;
+        }
+        .wrap p:first-child{
+            display: block;
+        }
+        .hour{
+            background: #cfc;
+            border-bottom: 1px solid #cfc;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <ul id="meau">
+            <li class="hour">明星</li>
+            <li>娱乐</li>
+            <li>军事</li>
+        </ul>
+        <section id="cont">
+            <p>明星明星明星明星</p>
+            <p>娱乐娱乐娱乐</p>
+            <p>军事军事军事</p>
+        </section>
+
+    </div>
+
+    <script>
+        var meaus = document.querySelectorAll('#meau>li'),
+            conts = document.querySelectorAll('#cont>p')
+        for(var i=0;i<meaus.length;i++){
+             (function(n){
+                  meaus[n].onclick = function(){
+                      
+                       for(var j=0;j<meaus.length;j++){
+                             meaus[j].className = ''
+                             conts[j].style.display = 'none'
+                       }
+                       meaus[n].className = 'hour'
+                       conts[n].style.display = 'block'
+                  }  
+             })(i)
+        }
+    </script>
+</body>
+</html>

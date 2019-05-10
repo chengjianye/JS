@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+        <p><span></span></p>
+        <p></p>
+    </div>
+    <ul>
+        <li></li>
+        <li></li>
+        <li><b></b></li>
+    </ul>
+    <script>
+        //递归阶乘
+        function jc(n){
+             if(n <= 1){
+                 return 1
+             }
+             return n * jc(n - 1)
+        }
+        //console.log(jc(5))
+        
+        //查找所有节点
+        var arr = []
+        function getTagname(all){
+            var nodes = [].slice.call(all.children)
+            if(nodes.length === 0){
+                return [];
+            }
+            nodes.forEach(function(item){
+                    arr.push(item)
+                    getTagname(item)
+            })
+             return arr
+        }
+        console.log(getTagname(document.body));
+    </script>
+</body>
+</html>

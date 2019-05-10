@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <style>
+        #box{width:800px; height:300px; background:#fcc; color:#fff; font-size:50px;}
+    </style>
+</head>
+<body>
+
+<div id="box"></div>
+
+
+
+    <script>
+
+          box=document.getElementById('box')
+          setInterval(function(){
+              var time=new Date()
+              var newtime=new Date(2018,1,3)
+              var val=newtime.getTime()-time.getTime();
+              var dtime=24*60*60*1000
+              var date=parseInt(val/dtime)
+              var hours=parseInt((val-date*dtime)/1000/60/60)
+              var ms=parseInt((val-date*dtime-hours*60*60*1000)/1000/60)
+              var sc=parseInt((val-date*dtime-hours*60*60*1000-ms*60*1000)/1000)
+              box.innerHTML=(date+'天'+hours+'小时'+ms+'分'+sc+'秒')
+          },1000)
+
+
+          /*var time=new Date();
+          var year=time.getFullYear();
+          var month=time.getMonth();
+          var date=time.getDate();
+          var now=new Date(year,month,date+3)
+          var val=24*60*60*1000;
+          //time.setTime(time.getTime()+val*3)
+          time.setTime(time*1+val*3)
+          console.log(time.getDay())*/
+
+
+
+    </script>
+
+</body>
+</html>

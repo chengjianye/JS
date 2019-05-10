@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <style>
+        *{margin:0; padding:0; list-style:none;}
+        #pic{width:778px; height:440px; margin:0 auto; position:relative; overflow:hidden;}
+        #pic ul img{ width:778px; height:440px;}
+        #pic ol{position:absolute; left:40%; bottom:10px;}
+        #pic ol li{width:30px; height:30px; background:rgba(255,255,255,0.8); border-radius:50%;   margin-right:10px;float: left; text-align:center; line-height:30px;}
+        #pic ol li.bg{background:#fcc;}
+        #left{width:80px; height:30px;  background:rgba(255,255,255,0.8); position:absolute; top: 50%; left:20px; text-align:center; line-height:30px; margin-top:-50px;}
+        #right{width:80px; height:30px;  background:rgba(255,255,255,0.8); position:absolute; top: 50%; right:20px; text-align:center; line-height:30px; margin-top:-50px;}
+    </style>
+</head>
+<body>
+    <div id="pic">
+        <ul>
+            <li><img src="images/banner1.jpg" alt=""></li>
+            <li><img src="images/banner2.jpg" alt=""></li>
+            <li><img src="images/banner3.jpg" alt=""></li>
+            <li><img src="images/banner4.jpg" alt=""></li>
+        </ul>
+        <ol>
+            <li class="bg">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ol>
+        <span id="left">上一张</span>
+        <span id="right">下一张</span>
+
+    </div>
+
+
+    <script>
+         var pics=document.getElementsByTagName('ul')[0].getElementsByTagName('li')
+         var nums=document.getElementsByTagName('ol')[0].getElementsByTagName('li')
+         var left=document.getElementById('left')
+         var right=document.getElementById('right')
+         var id=0;
+         var timer=null
+
+
+//下一张
+ right.onclick=function(){
+        id++;
+        if(id>pics.length-1){id=0}
+       for(var i=0;i<pics.length;i++){
+            pics[i].style.display='none'
+            nums[i].className=''
+        }
+            pics[id].style.display='block'
+            nums[id].className='bg'
+ }
+ //下一张
+ left.onclick=function(){
+        id--;
+       if(id>pics.length-1){id=0}
+       for(var i=0;i<pics.length;i++){
+            pics[i].style.display='none'
+            nums[i].className=''
+        }
+            pics[id].style.display='block'
+            nums[id].className='bg'
+ }
+
+
+
+
+
+
+
+
+         fuc();
+         //自动播放
+         function fuc(){
+                timer=setInterval(function(){
+                 id++
+                 if(id>pics.length-1){id=0}
+                 for(var i=0;i<pics.length;i++){
+                      pics[i].style.display='none'
+                      nums[i].className=''
+                 }
+                 pics[id].style.display='block'
+                 nums[id].className='bg'
+
+             },2000)
+         }
+
+
+         //划过暂停
+
+         pic.onmouseover=function(){
+              clearInterval(timer)
+         }
+         pic.onmouseout=function(){
+             fuc()
+         }
+
+
+         //单击播放
+      for(var j=0;j<nums.length;j++){
+            nums[j].index=j
+            nums[j].onclick=function(){
+                    for(var i=0;i<pics.length;i++){
+                      pics[i].style.display='none'
+                      nums[i].className=''
+                    }
+                     nums[this.index].className='bg'
+                      pics[this.index].style.display='block'
+                      id=this.index
+              }
+
+         }
+    </script>
+
+</body>
+</html>

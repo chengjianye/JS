@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <a href="hotel.html">预定</a>
+    <p id="show"></p>
+    <script>
+         function getAll(){
+              var href = location.search.substr(1)
+              var arr = href.split('&')
+              var obj = {}
+              arr.map(function(item){
+                 var key = item.split('=')
+                 obj[key[0]] = decodeURI(key[1])
+              })
+              return obj
+         }
+         getAll()
+         var show = document.getElementById('show')
+             obj = getAll()           
+             show.innerHTML = '用户名选中的入住:' + obj.start + '离店时间时:'+ obj.leave + '姓名是:' + obj.name
+
+        function getAllreg(_name){
+              var val = location.search.slice(1)
+              var reg = new RegExp('(^|&)' + _name + '=([^&]+)')
+                   
+                return decodeURI(val.match(reg)[2])
+            
+         }  
+         console.log(getAllreg('leave'))  
+
+
+    </script>   
+</body>
+</html>
+

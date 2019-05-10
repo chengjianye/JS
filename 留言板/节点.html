@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <style>
+         *{list-style:none;}
+    </style>
+</head>
+<body>
+<ul id="list">
+    <li>111</li>
+    <li>222</li>
+    <li>333</li>
+    <li>444</li>
+    <li>555</li>
+</ul>
+<button id="btn">删除</button>
+
+<script>
+     /*（1）、通过children属性获取所有LI，遍历所有LI，添加下边框（20分）。
+    （2）、通过firstChild获取到第一个LI添加红色背景，需要解决兼容问题（20分）
+    （3）通过第一个LI的nextSibling的方式找到第二个LI添加蓝色背景，需要解决兼容问题（10分）
+    （4）为每一个LI添加“data-key”属性，值为每个LI的索引;（10分）
+    （5）将第一个LI的‘data-key’删除（10分）
+    （6）通过lastElementChild找到最后一个li，再去查找到它前一个兄弟节点，获取到它的’data-key’属性值在控制台打印输出。
+    （7）当点击‘删除’按钮时，将最后一个li删除掉。（20分）*/
+     var list=document.getElementById('list')
+     var lis=list.getElementsByTagName('li')
+     var btn=document.getElementById('btn')
+
+     for(var i=0;i<list.children.length;i++){
+            list.children[i].style.borderBottom='solid 1px #000'
+     }
+     list.firstElementChild.style.background='red'
+     list.firstElementChild.nextElementSibling.style.background='blue'
+     for(var i=0;i<lis.length;i++){
+            lis[i].getAttribute('date-key',i)
+            console.log(lis[i])
+     }
+
+     list.firstElementChild.removeAttribute('date-key')
+     console.log(list.lastElementChild.previousElementSibling)
+     console.log(list.lastElementChild.previousElementSibling.getAttribute('date-key'))
+     btn.onclick=function(){
+           list.removeChild(list.lastElementChild)
+     }
+</script>
+
+
+</body>
+</html>

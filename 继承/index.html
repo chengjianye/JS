@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script src="js/inhrite.js"></script>
+    <script>
+        function superType(s,b){
+             this.car = s;
+             this.house = b;
+        }
+        superType.prototype.job = function(){
+             alert('全球第一有钱人')
+        }
+
+        function subType(){
+             superType.apply(this,arguments)
+        }
+        inhrite(superType,subType)
+        var son=new subType('北京','是谁')
+        console.log(son)
+    </script>
+</body>
+</html>

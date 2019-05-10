@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <style>
+        ul li{width:50px; height:50px; border-radius:50%; border:solid 1px blue; float:left; list-style:none; margin-left:20px; text-align:center; line-height:50px; font-size:18px;}
+        ol li{width:50px; height:50px; border-radius:50%; border:solid 1px red; float:left;list-style:none;margin-left:20px;text-align:center; line-height:50px;font-size:18px;}
+    </style>
+</head>
+<body>
+    <ul id="list1">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+
+    </ul>
+    <ol id="list2">
+        <li>6</li>
+        <li>7</li>
+    </ol>
+    <div style='clear:both'></div>
+    <button>机选一注</button>
+    <button>暂停</button>
+    <button>清空</button>
+    <script>
+         var list1=document.getElementById('list1')
+         var lis=list1.getElementsByTagName('li')
+         var list2=document.getElementById('list2')
+         var liss=list2.getElementsByTagName('li')
+         var btn=document.getElementsByTagName('button')
+         var timer=null;
+         function random(n,m){
+              return Math.floor(Math.random()*(m-n+1))+n
+         }
+
+         function render(){
+                for(var i=0;i<lis.length;i++){
+                        lis[i].innerHTML=random(1,34)
+                }
+                for(var i=0;i<liss.length;i++){
+                        liss[i].innerHTML=random(1,16)
+                }
+         }
+
+         btn[0].onclick=function(){
+             timer=setInterval(render,100)
+         }
+         btn[1].onclick=function(){
+             clearInterval(timer)
+         }
+         btn[2].onclick=function(){
+             clearInterval(timer)
+              for(var i=0;i<lis.length;i++){
+                        lis[i].innerHTML=''
+                }
+                for(var i=0;i<liss.length;i++){
+                        liss[i].innerHTML=''
+                }
+         }
+
+    </script>
+
+</body>
+</html>

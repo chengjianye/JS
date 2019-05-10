@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+         <div class="options">
+            <ul id="items">
+                <li>音乐</li>
+                <li>美术</li>
+                <li>体育</li>
+                <li>游戏</li>
+                <li>旅游</li>
+                <li>跑步</li>
+                <li>爬山</li>
+                <li>探险</li>
+            </ul>
+         </div>
+         <div class="button-info">
+            <div class="button">
+                <p>
+                    <input type="text" id="aihao" placeholder="请输入需要添加的标签" >
+                </p>
+                <span id="add">添加爱好</span>
+            </div>
+            <div class="tip" id='tishi' >最多只能选择三项</div>
+         </div>
+         <div class="result">
+            <ul id="selected">
+            <!--    <il>aaa <span></span></li> -->
+            </ul>
+         </div>
+    </div>
+    <script>
+
+        var aihao=document.getElementById('aihao')
+        var tishi=document.getElementById('tishi')
+        var add=document.getElementById('add')
+        var selected=document.getElementById('selected')
+        var lis=selected.getElementsByTagName('li')
+        var items=document.getElementById('items')
+        var oli=items.getElementsByTagName('li')
+        for(var i=0;i<oli.length;i++){
+               oli[i].onclick=function(){
+                     if(lis.length<3){
+                          var newli=this.cloneNode(true)
+                          selected.appendChild(newli)
+                          newli.onclick=function(){
+                               selected.removeChild(this)
+                               tishi.style.display='none'
+                          }
+                     }else{
+                         tishi.style.display='block'
+                     }
+            }
+        }
+
+        add.onclick=function(){
+              if(aihao.value.length==''){
+                  alert('不能为空')
+              }else{
+                    if(lis.length<3){
+                            var newli=document.createElement('li')
+                          newli.innerHTML=aihao.value+'<span></span>'
+                          selected.appendChild(newli)
+                          var spans=newli.getElementsByTagName('span')
+                          spans[0].onclick=function(){
+                                selected.removeChild(this.parentNode);
+                                tishi.style.display='none';
+                          }
+                    }else{
+                         tishi.style.display='block';
+                    }
+              }
+        }
+
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>

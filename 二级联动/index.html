@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <form name="form1" action="" method="get">
+        <select id="select1" name="province">
+		    <option value="0">选择省</option>
+	    </select>
+        <select id="select2" name="city" id="citys">
+	    	<option value="0">选择城市</option>
+	    </select>
+    </form>
+    <script src="js/set_city.js"></script>
+    <script>
+        new City({
+            select1: 'select1',
+            select2: 'select2'
+        })
+    </script>
+</body>
+
+</html>

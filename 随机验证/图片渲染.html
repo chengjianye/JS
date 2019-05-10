@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <style>
+         .container{width:1200px;height:300px;margin:50px auto;}
+      ul{list-style:none;}
+      #list li{float:left;width:182px;height:110px;margin-right:15px;padding:5px;border:1px solid #ccc;}
+      #list li img{display:block;width:182px;height:110px;}
+      .btns{clear:both;padding:30px 0 0 500px;}
+      .btns span{display:inline-block;width:90px;height:26px;background:#eee;text-align:center;line-height:26px;margin-right:20px;cursor:pointer;}
+      .btns span.current{background:#f00;color:#fff;}
+      #list li.current{border:2px solid #f00;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <ul id="list">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <div class="btns">
+               <span id="display">显示全部</span>
+               <span id="random">随机选择</span>
+        </div>
+    </div>
+
+    <script>
+         var list=document.getElementById('list')
+         var lis=list.getElementsByTagName('li')
+         var display=document.getElementById('display')
+         var random1=document.getElementById('random')
+         var arr=['images/img1.png','images/img2.png','images/img3.png','images/img4.png','images/img5.png',]
+
+         display.onclick=function(){
+             if(display.className=='current'){
+                 display.className=''
+                 for(var i=0;i<lis.length;i++){
+                         lis[i].innerHTML=''
+                    }
+                 display.innerHTML='显示全部'
+
+             }else{
+                    display.className='current'
+                    for(var i=0;i<lis.length;i++){
+                         lis[i].innerHTML='<img src="'+arr[i]+'">'
+                    }
+
+                    display.innerHTML='隐藏全部'
+             }
+
+             function random(n,m){
+                  return Math.floor(Math.random()*(m-n+1))+1
+             }
+
+             random1.onclick=function(){
+                if(display.innerHTML=='显示全部'){
+                       alert('请先渲染图片')
+                }else{
+                        for(var i=0;i<lis.length;i++){
+                         lis[i].className=''
+                    }
+                    lis[random(0,lis.length-1)].className='current'
+                }
+
+             }
+         }
+
+    </script>
+
+</body>
+</html>

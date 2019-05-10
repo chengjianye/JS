@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+<body>
+
+        <input type="checkbox" name="">
+        <input type="checkbox" name="">
+        <input type="checkbox" name="">
+        <input type="checkbox" name="">
+        <p></p>
+        <button>全选</button><button>不选</button><button>反选</button>
+
+        <script>
+
+                var inputs=document.getElementsByTagName('input')
+                var btn=document.getElementsByTagName('button')
+
+                btn[0].onclick=function(){
+                        for(var i=0;i<inputs.length;i++){
+                             inputs[i].checked=true
+                        }
+                }
+                btn[1].onclick=function(){
+                        for(var i=0;i<inputs.length;i++){
+                             inputs[i].checked=false
+                        }
+                }
+                btn[2].onclick=function(){
+                        for(var i=0;i<inputs.length;i++){
+                             if(inputs[i].checked==true){
+                                     inputs[i].checked=false
+                             }else{
+                                     inputs[i].checked=true
+                             }
+
+                        }
+                }
+
+        </script>
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+<body>
+
+    <!-- <input type="checkbox" name="ah">
+    <input type="checkbox" name="ah">
+    <input type="checkbox" name="ah">
+    <input type="checkbox" name="ah">
+    <p></p>
+    <button>全选</button><button>不选</button><button>反选</button>
+    <p></p>
+    <input type="checkbox" id="inp">全选/不选 -->
+
+    <textarea cols="30" rows="10" maxlength="30" id="info"></textarea>
+    <span>请输入<b>30</b>个字</span>
+
+    <script>
+
+            /*var btn=document.getElementsByTagName('button')
+            var inputs=document.getElementsByTagName('input')
+            var ahs=document.getElementsByName('ah')
+            var inps=document.getElementById('inp')
+            btn[0].onclick=function(){
+                for(var i=0;i<ahs.length;i++){
+                    ahs[i].checked=true
+                }
+            }
+            btn[1].onclick=function(){
+                for(var i=0;i<ahs.length;i++){
+                    ahs[i].checked=false
+                }
+            }
+            btn[2].onclick=function(){
+                    for(var i=0;i<ahs.length;i++){
+                        if(ahs[i].checked==true){
+                            ahs[i].checked=false
+                        }else{
+                            ahs[i].checked=true
+                        }
+                    }
+            }
+
+            inps.onclick=function(){
+                for(var i=0;i<inputs.length;i++){
+
+                        inputs[i].checked=inps.checked;//if判断时==ture可以省略
+                }
+
+            }*/
+
+
+            //输入字符，就减去多少字符
+            var info=document.getElementById('info')
+            var bs=document.getElementsByTagName('b')
+
+            info.onkeyup=function(){
+                    bs[0].innerHTML=30-info.value.length
+            }
+
+    </script>
+</body>
+</html>

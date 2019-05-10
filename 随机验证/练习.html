@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <style>
+         #box{width:500px; height:100px; border:solid 1px #000; margin:20px auto; position:relative;}
+         #more{width:100px; height:50px;background:#fcc; position:absolute; bottom:-50px; left:50%; margin-left:-50px; text-align:center; line-height:50px;}
+         img{width:300px;}
+    </style>
+</head>
+<body>
+    <!-- <div id='box'>文字<a href="#">百度</a></div>
+    <input type="text" id="user" value="张三"><button id="btn">单击</button><span></span> -->
+
+    <!-- <div id="box">
+          <span id="more">更多</span>
+    </div> -->
+
+    <img src="img/banner1.jpg" id="abc">
+
+    <script>
+       /*var btn=document.getElementById('btn')
+           user=document.getElementById('user')
+           spans=document.getElementsByTagName('span')
+
+           btn.onclick=function(){
+                if(user.value.length<6 || user.value.length>12){
+                        spans[0].innerHTML='长度输入错误'
+                }else{
+                        spans[0].innerHTML='正确'
+                }
+           }*/
+
+           /*var more=document.getElementById('more')
+           var box=document.getElementById('box')
+
+           more.onclick=function(){
+                if(box.style.height=='400px'){
+                        box.style.height='100px';
+                        more.innerHTML='更多'
+
+                }else{
+
+                        box.style.height='400px';
+                        more.innerHTML='收起'
+                }
+
+           }*/
+
+           var pics=document.getElementsByTagName('img')
+
+           console.log(pics[0].src)
+           console.log(pics[0].id)
+
+           pics[0].onmouseover=function(){
+                    pics[0].src='img/banner2.jpg'
+           }
+           pics[0].onmouseout=function(){
+                    pics[0].src='img/banner1.jpg'
+           }
+
+
+
+
+    </script>
+
+</body>
+</html>
